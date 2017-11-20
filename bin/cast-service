@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+const service = require('../src');
+const yargs = require('yargs');
+const { resolve } = require('path');
+const package = require('../package.json');
+
+yargs
+    .usage('Usage: $0 [--config <path>]')
+    .count('verbose')
+    .alias('v', 'verbose')
+    .describe('verbose', 'The Log Level')
+    .string('config')
+    .alias('c', 'config')
+    .describe('config', '<path> Path to the config file')
+    .boolean('debug')
+    .describe('debug', 'Enable Redux Debugging')
+    .alias('h', 'help')
+    .help()
+    .version(package.version);
+
+const { argv } = yargs;
+
+const options = {
+    debug: !!argv.debug
+};
+
+if (argv.verbose) {
+    switch (argv.verbose) {
+        case 1:
+            options.logLevel = 'info';
+            break;
+        case 2:
+            options.logLevel = 'debug';
+            break;
+        case 3:
+            options.logLevel = 'trace';
+            break;
+    }
+}
+
+if (argv.config) {
+    options.config = resolve(__dirname, '..', argv.config);
+}
+
+service
+    .start(options);

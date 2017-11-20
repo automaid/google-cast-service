@@ -1,0 +1,131 @@
+env:
+    es6: true
+    node: true
+extends: 'eslint:recommended'
+parserOptions:
+    ecmaFeatures:
+        experimentalObjectRestSpread: true
+    ecmaVersion: 2017
+rules:
+    indent:
+        - error
+        - 4
+        - SwitchCase: 1
+    linebreak-style:
+        - error
+        - unix
+    quotes:
+        - error
+        - single
+    semi:
+        - error
+        - always
+    prefer-const:
+        - warn
+    no-var:
+        - warn
+    no-new-object:
+        - error
+    object-shorthand:
+        - warn
+    quote-props:
+        - warn
+        - as-needed
+    no-array-constructor:
+        - error
+    array-callback-return:
+        - error
+    prefer-template:
+        - error
+    template-curly-spacing:
+        - error
+        - never
+    no-useless-escape:
+        - warn
+    no-loop-func:
+        - error
+    prefer-rest-params:
+        - error
+    no-new-func:
+        - error
+    space-before-function-paren:
+        - error
+        - never
+    no-param-reassign:
+        - warn
+    prefer-spread:
+        - warn
+    arrow-spacing:
+        - error
+    arrow-parens:
+        - error
+        - as-needed
+    arrow-body-style:
+        - error
+        - as-needed
+        - requireReturnForObjectLiteral: false
+    no-confusing-arrow:
+        - warn
+        - allowParens: true
+    no-useless-constructor:
+        - error
+    dot-notation:
+        - error
+        - allowPattern: ^[A-Z]+(_[A-Z]+)*$
+    one-var:
+        - error
+        - never
+    eqeqeq:
+        - error
+        - always
+    no-unneeded-ternary:
+        - warn
+    brace-style:
+        - error
+    space-before-blocks:
+        - error
+        - always
+    keyword-spacing:
+        - error
+        - { "overrides": {
+            "else": { "before": false },
+            "catch": { "before": false }
+          }}
+    space-infix-ops:
+        - error
+    eol-last:
+        - error
+        - always
+    newline-per-chained-call:
+        - error
+        - ignoreChainWithDepth: 3
+    padded-blocks:
+        - error
+        - never
+    space-in-parens:
+        - error
+        - never
+    array-bracket-spacing:
+        - error
+        - never
+    object-curly-spacing:
+        - error
+        - always
+    comma-style:
+        - error
+        - last
+    comma-dangle:
+        - error
+        - never
+    radix:
+        - error
+        - always
+    camelcase:
+        - error
+    new-cap:
+        - error
+    no-console:
+        - off
+    no-constant-condition:
+        - error
+        - { "checkLoops": false }

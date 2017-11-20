@@ -1,0 +1,165 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: 'Google Cast Homeservice'
+  description: 'Provides a simple to use HTTP Api for the Google Cast'
+tags:
+  - name: devices
+    description: Devices
+  - name: media
+    description: Media Information
+parameters:
+  device:
+    name: device
+    in: path
+    required: true
+    type: string
+    description: The Device to use
+definitions:
+  Device:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      idle:
+        type: boolean
+      volume:
+        type: number
+      mute:
+        type: boolean
+      application:
+        $ref: '#/definitions/Application'
+      media:
+        $ref: '#/definitions/Media'
+  Application:
+    type: object
+    properties:
+      id:
+        type: string
+      displayName:
+        type: string
+      statusText:
+        type: string
+      namespaces:
+        type: array
+        items:
+          type: string
+  Media:
+    type: object
+    properties:
+      state:
+        type: string
+        enum:
+          - PLAYING
+          - PAUSED
+          - BUFFERING
+          - IDLE
+      metadata:
+        $ref: '#/definitions/MetaData'
+      duration:
+        type: number
+      currentTime:
+        type: number
+      playbackRate:
+        type: number
+  MetaData:
+    type: object
+    properties:
+      image:
+        type: string
+      title:
+        type: string
+      artist:
+        type: string
+      album:
+        type: object
+        properties:
+          name:
+            type: string
+          artist:
+            type: string
+responses:
+  device_not_found:
+    description: Not Found
+paths:
+  /devices:
+    get:
+      tags:
+      - devices
+      description: Get a list of available Devices
+      parameters:
+      - name: idle
+        in: query
+        type: boolean
+        description: Include idle chromecasts
+        default: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Device'
+  /devices/{device}:
+    get:
+      tags:
+      - devices
+      parameters:
+      - $ref: '#/parameters/device'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Device'
+        404:
+          $ref: '#/responses/device_not_found'
+  /devices/{device}/media:
+    get:
+      tags:
+      - media
+      parameters:
+      - $ref: '#/parameters/device'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Media'
+        404:
+          $ref: '#/responses/device_not_found'
+  /devices/{device}/media/pause:
+    post:
+      tags:
+      - media
+      parameters:
+      - $ref: '#/parameters/device'
+      responses:
+        200:
+          description: OK
+        404:
+          $ref: '#/responses/device_not_found'
+  /devices/{device}/media/play:
+    post:
+      tags:
+      - media
+      parameters:
+      - $ref: '#/parameters/device'
+      responses:
+        200:
+          description: OK
+        404:
+          $ref: '#/responses/device_not_found'
+  /devices/{device}/application:
+    get:
+      tags:
+      - devices
+      parameters:
+      - $ref: '#/parameters/device'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Application'
+        404:
+          $ref: '#/responses/device_not_found'
