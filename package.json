@@ -24,7 +24,7 @@
         "bunyan": "^1.8.10",
         "bunyan-format": "^0.2.1",
         "castv2-client": "^1.2.0",
-        "js-yaml": "^3.9.0",
+        "js-yaml": "^3.13.0",
         "mdns": "^2.3.3",
         "node-fetch": "^1.7.1",
         "redux": "^3.7.2",
