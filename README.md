@@ -1,4 +1,6 @@
 # cast-service
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/automaid/google-cast-service.svg)](https://greenkeeper.io/)
 Expose Chromecasts as a http api
 
 # Configuration
