@@ -30,7 +30,7 @@
         "redux": "^3.7.2",
         "redux-saga": "^0.15.6",
         "remote-redux-devtools": "^0.5.12",
-        "restify": "^5.0.1",
+        "restify": "^8.1.0",
         "yargs": "^8.0.2"
     },
     "devDependencies": {
