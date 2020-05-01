@@ -1,0 +1,16 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - redux > lodash:
+        patched: '2020-05-01T05:38:47.140Z'
+    - restify > lodash:
+        patched: '2020-05-01T05:38:47.140Z'
+    - remote-redux-devtools > redux-devtools-instrument > lodash:
+        patched: '2020-05-01T05:38:47.140Z'
+    - remote-redux-devtools > remotedev-utils > lodash:
+        patched: '2020-05-01T05:38:47.140Z'
+    - restify > restify-errors > lodash:
+        patched: '2020-05-01T05:38:47.140Z'
