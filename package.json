@@ -21,7 +21,7 @@
     "homepage": "https://github.com/automaid/google-cast-service#readme",
     "dependencies": {
         "@automaid/url-executor": "^1.0.0",
-        "bunyan": "^1.8.10",
+        "bunyan": "^1.8.13",
         "bunyan-format": "^0.2.1",
         "castv2-client": "^1.2.0",
         "js-yaml": "^3.9.0",
