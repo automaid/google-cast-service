@@ -31,7 +31,7 @@
         "redux-saga": "^0.15.6",
         "remote-redux-devtools": "^0.5.12",
         "restify": "^5.0.1",
-        "yargs": "^8.0.2"
+        "yargs": "^15.0.1"
     },
     "devDependencies": {
         "chai": "^4.1.1",
